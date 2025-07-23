@@ -1,9 +1,11 @@
 package com.example.shop.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "users")
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +26,8 @@ public class User {
     private String street;
     private String postalCode;
 
-    public String getUsername() {
-        return username;
-    }
+    @Column(nullable = true)
+    private String role = "USER";
 
     public User() {}
 }
